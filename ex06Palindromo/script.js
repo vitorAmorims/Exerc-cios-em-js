@@ -24,5 +24,5 @@ function finalizar (){
         }
     }
 }
-//teste para github 
-//adicionei comentario no github para verificar atualização no vs code.
+//teste para github  ok entendido nas versões windows e linux.
+//adicionei comentario no github para verificar atualização no vs code. ok entendido para windows e linux.
