@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor R$ -> US$</title>
+</head>
+<body>
+    <h1>Conversor R$ para US$</h1>
+    <input type="button" value="Converter" onclick="converter()">
+    <h4>Clique no botão converter para iniciar conversão.</h2>
+    <div id='res'>
+
+
+    </div>
+    <script>
+        function converter () {
+            var vdollar = Number(parseFloat(window.prompt(`Antes de mais nada. Quanto está a cotação do dolar comercial agora?`)))
+            var valor = Number(parseFloat(window.prompt(`Quantos R$ você está disposto a trocar?`)))
+            var res = window.document.getElementById('res')
+            var dollar;
+                dollar = Number(parseFloat(valor / vdollar))    
+                res.innerHTML =(`A cotacação do dollar está US$${vdollar}, você possui R$ ${valor}, você adiquiriu US$${dollar}.`)
+       }
+
+    </script>
+</body>
+</html>
