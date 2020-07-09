@@ -36,7 +36,12 @@
                     x1 = Number((-b)+(Math.sqrt(delta)))/(2*a)
                     x2 = Number((-b)-(Math.sqrt(delta)))/(2*a)
                     res.innerHTML += (`As raizes são <strong>x1 = ${x1} e x2 = ${x2}</strong>`)
-                }//pendente fazer código para a !=0 && b==0 https://mundoeducacao.uol.com.br/matematica/equacao-incompleta-2-grau.htm#:~:text=As%20equa%C3%A7%C3%B5es%20incompletas%20do%20segundo,coeficientes%20sejam%20iguais%20a%20zero.&text=Quando%20um%20dos%20outros%20dois,do%20segundo%20grau%20%C3%A9%20incompleta.
+                }else if (a !=0 && b ==0 || c ==0){
+                    res.innerHTML += (`Está equação é incompleta.c.<br><br>`)
+                    res.innerHTML += (`Para os valores de a=${a}, b=${b} e c=${c}.<br><br> Δ = ${delta}<br><br>`)
+                    x1 = Number((-b)+(Math.sqrt(delta)))/(2*a)
+                    x2 = Number((-b)-(Math.sqrt(delta)))/(2*a)
+                    res.innerHTML += (`As raizes são <strong>x1 = ${x1} e x2 = ${x2}</strong>`)
             } 
         }
     </script>
