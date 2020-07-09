@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular troco</title>
+</head>
+<body>
+    <h1>Calculando o troco.</h1>
+    <h3>objetivo: obter nome do produto e preço, e retonar o troco para o cliente.</h3>
+    <input type="button" value="Comprar Produto" onclick="troco()">
+    <script>
+        var troco;
+        function troco () {
+            var produto = window.prompt(`Que produto você está comprando?`)
+            var preco = Number(parseFloat(window.prompt(`Qual preço do produto?`)))
+            var dinheiro = Number(parseFloat(window.prompt(`Qual o valor que você deu para pagamento?`)))
+            troco = Number(dinheiro - preco);
+            if (troco >= 0){
+                window.alert(`Parabéns, você comprou ${produto} por ${preco}. Deu R$ ${dinheiro} em dinheiro e vai receber R$ ${troco} de troco. Volte sempre!`)
+            } else {
+                window.alert(`Dinheiro insuficiente para realizar compra. Faltam R$ ${troco}!`)
+            }
+            
+        }
+
+    </script>
+    
+</body>
+</html>
