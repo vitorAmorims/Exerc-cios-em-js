@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação do aluno.</title>
+    <style>
+        div {
+            font-family: Arial;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Situação do aluno.</h1><br><br>
+    <input type="button" value="Entrar com as notas" onclick="verificar()"><br><br>
+    <h3>Clique no botão acima para informar as notas do aluno.</h3><br><br>
+    <div id="res">   </div>
+    <script>
+        var soma;
+        var media;
+        var situacao;
+            
+        function verificar () {
+            var nome = String(window.prompt(`Qual é o nome do aluno?`))
+            var n1 = Number(parseFloat(window.prompt(`Digite primeira nota de ${nome}:`)))
+            var n2 = Number(parseFloat(window.prompt(`Digite segunda nota de ${nome}:`)))
+            var res = window.document.getElementById('res')
+            soma = Number(n1 + n2)
+            media = Number(parseInt(soma / 2))
+            res.innerHTML = (`Analisando a situação de ${nome}<br><br>`)
+            res.innerHTML += (`Com notas ${n1} e ${n2}, e <strong>média ${media}</strong><br><br>`)
+            if (media < 3){
+                situacao = 'REPROVADO'
+                res.innerHTML += (`Com média ${media}, o aluno(a) ${nome} está <strong>${situacao}.</strong>`)
+            }else if (media >= 3 && media <= 6){
+                situacao = 'RECUPERAÇÃO'
+                res.innerHTML += (`Com média ${media}, o aluno(a) ${nome} está <strong>${situacao}.</strong>`)
+            }else if (media > 6) {
+                situacao = 'APROVADO'
+                res.innerHTML += (`Com média ${media}, o aluno(a) ${nome} está <strong>${situacao}.</strong>`)
+            }
+        }
+    </script>
+        
+</body>
+</html>
