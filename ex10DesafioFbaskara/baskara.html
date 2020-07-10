@@ -20,29 +20,17 @@
             var x1;
             var x2;
             delta = (b*b)-4*(a*c)
-            if (a != 0 && b != 0 && c != 0){
-                res.innerHTML = (`Equação do 2º grau completa.<br><br>`)
                 if (delta < 0){
                     res.innerHTML =(`A equação não possui valores reais.`)
-                } else if (delta == 0){
-                    res.innerHTML = (`Está equação terá somente um valor real ou dois resultados iguais<br><br>`)
-                    x1 = Number((-b)+(Math.sqrt(delta)))/(2*a)
-                    x2 = Number((-b)-(Math.sqrt(delta)))/(2*a)
-                    res.innerHTML += (`As raizes são <strong>x1 = ${x1} e x2 = ${x2}</strong>`)
                 } else if (delta > 0) {
                     res.innerHTML += (`Está equação terá dois valores reais e distintos.<br><br>`)
+                    res.innerHTML += (`Equação do 2º grau completa.<br><br>`)
                     res.innerHTML += (`Para os valores de a=${a}, b=${b} e c=${c}.<br><br> Δ = ${delta}<br><br>`)
                     res.innerHTML += (`Calculando raizes x1 e x2:<br><br>`)
                     x1 = Number((-b)+(Math.sqrt(delta)))/(2*a)
                     x2 = Number((-b)-(Math.sqrt(delta)))/(2*a)
                     res.innerHTML += (`As raizes são <strong>x1 = ${x1} e x2 = ${x2}</strong>`)
-             }else if (a !=0 && b ==0 || c ==0){
-                    res.innerHTML += (`Está equação é incompleta.<br><br>`)
-                    res.innerHTML += (`Para os valores de a=${a}, b=${b} e c=${c}.<br><br> Δ = ${delta}<br><br>`)
-                    x1 = Number((-b)+(Math.sqrt(delta)))/(2*a)
-                    x2 = Number((-b)-(Math.sqrt(delta)))/(2*a)
-                    res.innerHTML += (`As raizes são <strong>x1 = ${x1} e x2 = ${x2}</strong>`)
-            } 
+                }
         }
     </script>
     
