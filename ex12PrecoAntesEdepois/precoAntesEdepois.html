@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço mudou.</title>
+</head>
+<body>
+    <h1>Preço mudou.<br></h1>
+    <input type="button" value="Verificar" onclick="verificar()"><br><br>
+    <h3><strong> Clique no botão verificar</strong> para analisar a mudança de preço.</h3><br>
+    <div id="res"></div>  
+    <script>
+        function verificar () {
+            var precoAnt = Number(window.prompt(`Qual era o preço anterior do produto anterior?`))
+            var precoAtu = Number(window.prompt(`Qual é o preço atual do produto?`))
+            var res = window.document.getElementById('res')
+            var resultado;
+            var status;
+            var statusp;
+            var variacao;
+            res.innerHTML = (`<strong>Analisando os valores informados...</strong><br><br><br>`)
+            res.innerHTML += (`O produto custava R$ ${precoAnt}, e agora custa R$ ${precoAtu}.`)
+            resultado = Number(precoAtu - precoAnt)
+            if (resultado == 0){
+                res.innerHTML += (`Aproveite a promoção!! O produto está no mesmo preço. Apenas... R$${precoAtu}.`)
+            } else if (precoAtu > precoAnt) {
+                status = 'caro';
+                statusp = 'cima'
+                res.innerHTML = (`O produto custava R$ ${precoAnt}, e agora custa R$ ${precoAtu}.<br><br>`)
+                res.innerHTML += (`Hoje, o produto está mais ${status}!<br><br>`)
+                res.innerHTML += (`O preço subiu R$ ${resultado} em relação ao preço anterior.<br><br>`)
+                variacao = parseInt(((precoAtu/precoAnt)-1)*100)
+                res.innerHTML += (`Uma variação de ${variacao}% pra ${statusp}.`)
+            } else if (precoAtu < precoAnt) {
+                status = 'barato';
+                statusp = 'baixo'
+                res.innerHTML = (`O produto custava R$ ${precoAnt}, e agora custa R$ ${precoAtu}.<br><br>`)
+                res.innerHTML += (`Hoje, o produto está mais ${status}!<br><br>`)
+                res.innerHTML += (`O preço abaixou R$ ${resultado} em relação ao preço anterior.<br><br>`)
+                variacao = parseInt(((precoAtu/precoAnt)-1)*100)
+                res.innerHTML += (`Uma variação de ${variacao}% pra ${statusp}.`)
+            }
+            
+        }
+    </script>  
+</body>
+</html>
