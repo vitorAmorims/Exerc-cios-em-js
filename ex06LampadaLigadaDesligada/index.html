@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio lâmpada</title>
+</head>
+<body>
+    <h1>Desafio da lâmpada.</h1>
+    <h2>Se mover o mouse até a lampada, ira aparecer um gênio.</h2>
+    <h3>Se você clicar no gênio, a lampada ficará amarela para o seu pedido.</h3>
+    <figure onclick="ligar()" onmousemove="passou()" onmouseout="saiu()"> 
+        <img id="imagem" src="https://github.com/gabrieldarezzo/helpjs-ravi/blob/master/images/lampada.jpg?raw=true" alt="Lâmpada apagada">
+    </figure>
+    <script>
+        var img = window.document.getElementById('imagem')
+        function ligar () {
+            img.src = "https://github.com/gabrieldarezzo/helpjs-ravi/blob/master/images/lampada-on.jpg?raw=true"
+            var pedido = window.prompt(`Qual o seu pedido?`)
+            window.alert(`O pedido ${pedido} será realizado.`)
+        }
+        function passou () {
+            img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTfS0tKZdI2Gmxh5RZTfo-cmU7X5YgcxnQiLA&usqp=CAU"
+        }
+        function saiu () {
+            img.src = "https://github.com/gabrieldarezzo/helpjs-ravi/blob/master/images/lampada.jpg?raw=true"            
+        }
+    </script>
+</body>
+</html>

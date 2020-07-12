@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Função on click</title>
+</head>
+<body>
+    Digite seu nome: <input type="text" name="nome" id="nome">
+    <input type="button" value="Exibir nome" onclick="exibir()">
+    <script>
+        function exibir () {
+            var nomef = window.document.getElementById("nome").value;
+            window.alert(`Bem vindo, ${nomef}.`)
+        }
+    </script>
+</body>
+</html>
