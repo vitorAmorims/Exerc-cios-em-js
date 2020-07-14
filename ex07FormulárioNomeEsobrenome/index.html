@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário e Saudação</title>
+</head>
+<body>
+    <h1>Formulário e saudação.</h1>
+    <h2>Objetivo: criar campos nome e sobrenome, quando usuário clicar no botão saudação deverá aparecer mensagem de saudação com nome e sobrenome inputados no formulário.</h2>
+    Digite seu nome: <input type="text" name="nome" id="nome"><br><br>
+    Digite seu sobrenome: <input type="text" name="sobrenome" id="sobrenome"><br><br>
+    <input type="button" value="saudação" onclick="saudacao()">
+    <script>
+        function saudacao () {
+            var nome = window.document.getElementById('nome').value;
+            var sobrenome = window.document.getElementById('sobrenome').value;
+            window.alert(`Sejá bem vindo(a), ${nome} ${sobrenome}!`)
+        }
+        //exercicio 07 de https://github.com/gabrieldarezzo/helpjs-ravi
+    </script>    
+</body>
+</html>

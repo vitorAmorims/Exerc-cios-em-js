@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário CPF</title>
+</head>
+<body>
+    <h1>Formulário para CPF</h1>
+    <h4>Objetivo: Criar input para o usuário inserir CPF, quando clicar no botão Clique aqui, deverá aparecer alerta com CPF do cliente.</h4>
+    Digite o seu CPF: <input maxlength="11" type="number" name="cpf" id="cpf">
+    <input type="button" value="Clique aqui" onclick="cpf()">
+    <script>
+        function cpf () {
+            var cpf = window.document.getElementById('cpf').value;
+            window.alert(`Seu CPF é ${cpf}`)
+        }   
+    </script>    
+</body>
+</html>

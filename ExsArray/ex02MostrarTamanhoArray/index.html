@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamanho do Array</title>
+</head>
+<body>
+    <h1>Array</h1>
+    <p>Objetivo: O usuário, deverá inserir nomes para formação do array.</p>
+    <p>Returno: <strong> programa deverá ler o array, e mostrar o tamanho de cada item de sua composição.</strong></p>
+    Digite nome: <input type="text" name="nome" id="nome">
+    <input type="button" value="Inserir" onclick="inserir()">
+    <p>Clique no botão concluir, para ver o tamanho de cada item que compoe o array.</p>
+    <input type="button" value="Concluir" onclick="concluir ()">
+    <script>
+        var nomeA = []
+        function inserir () {
+            var nome = window.document.getElementById('nome').value;
+            nomeA.push(nome)
+            
+        }
+        function concluir () {
+            window.alert(`O array possui os valores, [${nomeA}].`)
+            for (var i=0; i < nomeA.length; i++){
+                window.alert(`O nome ${nomeA}, possui ${nomeA[i].length} letras.`)
+            }
+        }
+
+    </script>
+</body>
+</html>
