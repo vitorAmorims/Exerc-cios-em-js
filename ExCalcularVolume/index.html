@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Volume</title>
+</head>
+<body>  
+    
+    
+    <script>
+        var raio = window.prompt(`Qual o raio da lata em (cm)?`)
+        var altura = window.prompt(`Qual a altura em (cm)?`)
+        var volume;
+        var pi = 3.1415;
+            
+        volume = parseInt((pi * (((raio*raio)) * altura)))
+        window.alert(`Para raio ${raio}cm, e altura ${altura}cm, este cilindro possui ${volume}cm3 ou ${volume/1000} litros.`)
+
+    </script>
+    
+</body>
+</html>
