@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos em javascript</title>
+</head>
+<body>  
+    <h1>Objeto: é um valor que permite armazenar, uma coleção de pares de valor. Tipo variável, dentro de variável.</h1>
+    <h2>Aula programador a bordo no youtube.</h2> 
+    <h2>Em js para criar objeto usamos chaves {}</h2>
+    <h4>Parte 1 objet em javascript até linha 120 do código.</h4>
+    <h4>Parte 2 object em javascript </h4>
+    <script>
+        /*
+        // link aula 1 https://www.youtube.com/watch?v=vB-aPrlSEXs&t=316s
+        // link aula 2 https://www.youtube.com/watch?v=7MG3O_-ZqGc
+        
+        var usuario = {
+            nome: "Vitor",
+            idade: 38,
+            sexo: "masculino",
+            Profissao: "Desenvolvedor Full Stack"
+        }
+        
+        //podemos inserir elemento no objeto, ex: usuario.ano = 2020
+        usuario.ano = 2020;
+        usuario.hobbies = ['música', 'programar', 'viajar'];
+        //podemos deletar usando o comaando delete ex: delete usuario.idade
+        
+        //aqui estou criando um objeto dentro do meu objeto.
+        usuario.competencias = {
+            linguagens: ['javascript', 'c++', 'python', 'php']
+        }
+        console.log(usuario); //ou console.table(usuario) para emxerga a disposição dos itens no objeto.
+        usuario.competencias.valores = [2,4,6];
+
+        var infoExtras = {
+            pais: "Brasil",
+            estado: "São Paulo"
+        }
+        //aqui estou concatenando os objetos usuario e infoExtras
+        var novoObjeto = Object.assign({}, usuario, infoExtras);
+
+        //criou uma chave com o resultado usuário e infoExtras. Porque o nome da variável tem o mesmo nome da propriedade.
+        /*var usuario2 = {
+            usuario,
+            infoExtras,
+        }
+        */
+        
+        //aqui estou espalhando as propriedades dos objetos usuario e infoExtras para dentro da variável2.
+        //OBS: poderia ter feito assim também var usuario2 = Object.assign({}, usuario, infoExtras);
+        /*
+        var usuario2 = {
+            ...usuario,
+            ...infoExtras,
+        }
+        console.log(usuario2);
+
+        //aqui estou criando uma variável com valor string Estado.
+        var variavel = 'Estado';
+        //ATENÇÂO!! aqui estou chamando o valor da variável dentro do obeto
+        var usuario3 = {
+            nome: "lucas",
+            [variavel]: 'São Paulo' //interessante
+        }
+        console.log(usuario3);
+
+        //getters e setters
+        //aqui estou criando um array com 3 objetos
+        var usuarios4 = [{
+            nome: "Vitor",
+            idade: 38
+        },
+        {
+            nome:"Lucas",
+            idade: 17
+        },
+        {
+            nome: "Silvia",
+            idade: 33
+        }];
+        console.table(usuarios4);
+        //criando função para percorrer o array com 3 objetos. 
+        var fteste = {
+            posicao: 0, 
+            get atual () { //se escrever get na frente de posição, não haverá necessidade de colocar () na frente da função.
+            //get está sendo usando retornar o valor da função atual.
+                return usuarios4[this.posicao]
+            },
+            set atual (posicao){ //set está sendo sendo usado para definir o valor da funcao de mesmo nome. Neste caso: atual.
+                this.posicao = posicao;
+            },
+            proximo () {
+                ++this.posicao;
+            },
+            anterior () {
+                --this.posicao;
+            }
+        };
+
+        //console.table(fteste.atual()); // ao executar este comando obtive retorno do indice 0 da variavel usuarios4.
+        //fteste.proximo(); // aqui estou caminhando para o próximo item do array.
+        //console.table(fteste.atual()); // ao executar este comando obtive retorno do segundo objeto do array usuarios4.
+
+        console.table(fteste.atual); //{nome: "Vitor", idade: 38}        
+        fteste.proximo(); 
+        console.table(fteste.atual); //{nome:"Lucas",idade: 17}
+        fteste.anterior();
+        console.table(fteste.atual); //{nome: "Vitor", idade: 38}
+        //fteste.atual = 1; //aqui estou especificando o atual na posição 1, OBS: qualquer valor de posição atual ele esta trazendo a posição 0.
+        //será necessário incluir uma função para sobrescrever a posição
+        //console.table(fteste.atual);
+        /*fteste.proximo();
+        console.table(fteste.atual);
+        fteste.anterior();
+        console.table(fteste.atual);
+        fteste.anterior();
+        console.table(fteste.atual);
+        */
+        /*
+        fteste.atual = 2; //sempre que atribuir valor ele vai chamar o set, linha 86.
+        console.table(fteste.atual);
+
+        fteste.anterior(); //aqui ele vai chamar o get linha 82.
+
+        
+        /*
+        PARTE 2 DE OBJET EM JAVASCRIPT
+        */
+
+        var novoUsuario = {
+            nome: "Vitor",
+            idade: 38,
+            pais: "Brazil"
+        };
+        //meio tradicional, se quiser usar o valor do elemento em nova variavel.
+        //var nome = novoUsuario.nome;
+        //var pais = novoUsuario.pais;
+        //console.log(nome,pais);
+        
+        //ecma 6 tem novo modelo para fazer esta atribuição.
+        //INTERESANTE...
+        //var {idade} = novoUsuario;
+        //console.log(idade);
+
+        var {nome, idade,pais} = novoUsuario; //neste caso, estou extraindo valores e do objeto  e atribuindo valores para respectivas variáveis.
+        console.log(pais,nome,idade);
+
+        //quando usamos os : estou atribuindo o valor para variavel PrimeiroNome.
+        var {nome:PrimeiroNome} = novoUsuario; //aqui estou extraindo o valor da objeto e atribuindo a uma nova variável.
+        console.log('Aqui estou imprimindo o conteúdo da variável PrimeiroNome: '+PrimeiroNome)
+        // Destruction forma mais curta de atribuir valores a uma variável.
+
+        var novoUsuario2 = { //objeto
+            nome: { //objeto dentro de outro caderno.
+                primeiro: "Vitor",
+                ultimo: "Amorim"
+            }
+        };
+        //tradicional.
+        var primeiro = novoUsuario2.nome.primeiro;
+        console.log(primeiro);
+
+        //aqui estou extraindo um valor de objeto que está dentro de outro objeto e atribuindo o valor para variável nome.
+        var {nome:{primeiro}} = novoUsuario2;
+        console.log(nome)
+
+        //aqui estou tentando extrair propriedado do objeto nome, porém não foi definido.
+        var {nome: {segundo}} = novoUsuario2;
+        console.log(segundo) // ok, retornou undefined.
+
+        //IMPORTANTE: aqui estou atribuindo valor default para variavel segundo, caso não consiga extrair o valor do objeto novoUsuario2.
+        var {nome: {segundo = 'Timóteo'}} = novoUsuario2; //o valor default, pode ser number, string, array ou object.
+        console.log(segundo); //ok, retornou Timóteo.
+
+        var usuarioFunction = {
+            nome: "Vitor",
+            idade: 38,
+            sexo: "M",
+            país: "brasil"
+        }
+
+        function imprimenome () {
+            console.log(nome);
+            console.log(idade);
+            console.log(pais);
+        }
+        imprimenome(usuarioFunction);
+
+
+        //procurar ler mais sobre outros métodos Object.
+        //Object.keys imprimi todas as chaves do meu objeto.
+        console.log(Object.keys(usuarioFunction));
+        //Object.values imprimi somente os valores do meu objeto.
+        console.log(Object.values(usuarioFunction));
+
+        //iterar 
+        //Observe, que se quiser iterar objeto com loop normal for, temos que usar Object.keys para extrair propriedades e armazenar no array.
+        //e fazer iteração em cima do array que vai retornar. 
+        var props = Object.keys(usuarioFunction);
+        console.log(props);
+        for (var i = 0; i < props.length; i++){
+            //console.log(props[1]);
+            console.log(usuarioFunction[props[i]])
+        }
+
+        //for in é próprio para iterar objetos
+        for (var prop2 in usuarioFunction){ //passando objeto que quero iterar
+            console.log('teste'+prop2); //retorna a chave.
+        }
+
+        for (var prop3 in usuarioFunction){
+            console.log('Variavel prop3: '+prop3,usuarioFunction[prop3]);
+        }
+
+        
+
+    </script>
+</body>
+</html>

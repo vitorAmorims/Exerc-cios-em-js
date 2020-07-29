@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    <h1>Array unidimensional: estaremos apreendendo o conceito de array.</h1>
+    <h2>Vetor unidimensional possuí apenas 1 indice.</h2>
+    <p>declaração de array, usamos [] ou new Array()</p>
+    <p>Método push() inseri elemento no final do array.</p>    
+    <p>método unshift() inseri no inicio do array.</p>
+    <p>método pop() remove do final do array.</p>
+    <p>método splice() remove de qualquer posição do array.</p>
+    <p>Método indexOf() pesquisar elemento dentro do array.</p>
+    <p>Método sort() ordenar o array em ordem crescente.</p>
+    <p>Método reverse() inverter ordens dos elementos do array</p>
+    <p>Método join() ele junta os elementos do array em uma variável só em forma de string, separados por virgula.</p>
+    <p>método concat() unificar dois arrays.</p>
+    <p>sempre primeiro posição é 0.</p>
+    <script>
+        /*var cor = []; // var cor = new Array()
+        cor.push('Amarelo','azul','verde')// estou usando o método push para incluir o conteúdo no vetor cor.
+        document.write(cor[1]*/
+        
+        //aqui estou atribuindo valor na posição que quero no vetor
+        /*cor[0] = 'preto';
+        cor[1] = 'prata';
+        cor[2] = 'lilas';
+        cor.push('vinho');
+        document.write(cor);
+        */
+        //aqui estou atribuindo um elemento do vetor em outro vetor.
+        //var itens = ['faca','pederneira','espelho','corda'];
+        /*var mochila = [itens[3]];
+        document.write(mochila)
+        */
+
+        //aqui estou declarando qual posição do vetor itens, quero incluir no array mochila.
+        //e imprimindo o conteúdo na tela. (((Achei interessante))) PROCURE SEMPRE USAR.
+        /*var mochila = [];
+        mochila.push(3);
+        document.write(itens[mochila[0]]);
+        */
+        /*document.write("Método push() inseri elemento no final do array."+"<br>") 
+        var mochila = new Array();
+        mochila.push('faca');
+        mochila.push('espelho');
+        mochila.push('corda');
+        document.write(mochila[0]+"<br>")
+        document.write(mochila[1]+"<br>")        
+        document.write(mochila[2]+"<br><br>")
+
+        document.write("Método unshift() inseri elemento no inicio do array."+"<br>")
+        mochila.unshift('pedra')
+        document.write(mochila+"<br><br>");
+
+        document.write("Método pop() remove último  elemento do array."+"<br>")
+        mochila.pop();
+        document.write(mochila+"<br><br>");
+
+        document.write("Método shift() remove o primeiro elemento do array."+"<br>")
+        mochila.shift();
+        document.write(mochila+"<br><br>");
+
+        document.write("Método splice() remove do meio do do array."+"<br>")
+        var geladeira = []
+        geladeira.push('carne');
+        geladeira.push('ovos');
+        geladeira.push('danone');
+        geladeira.push('legumes');
+        document.write(geladeira+"<br><br>");
+        document.write('exemplo: neste caso o vetor geladeira possui 4 elementos.'+"<br>");
+        document.write('usando o método splice(QUAL indice desejo remover, QUANTOS elementos desejo remover.)'+"<br>")
+        geladeira.splice(2,2);
+        document.write('usei o método splice(2,2)'+"<br>")
+        document.write(geladeira+"<br><br>")
+        */
+
+        /*var armario  = []; aqui estou usando o método indexOf() para encontrar a posição do elemento no vetor.
+        var res;
+        armario.push('arroz');
+        armario.push('feijao');
+        armario.push('sal');
+        armario.push('Farinha de trigo');
+        document.write('Agora vamos apreender o método indexOf()'+"<br><br>")
+        document.write(armario+"<br><br>");
+        document.write('Estou usando o comando armario.indexOf() para o elemento string feijao do array'+"<br><br>")
+        res = document.write(armario.indexOf('sal')+"<br>");
+        //se pesquisar um elemento que não está no array, o js retorna -1
+        if (res == -1){
+            document.write('Item não está no array.')
+        } else {
+            document.write('O tem, está na posição: '+ armario.indexOf('sal'))
+        }
+        */
+        
+        /*var numeros = [4,2,9,0,7] usei o método sort() para ordenar crescente os elementos do vetor. 
+        document.write('Aqui os números, são exibidos na ordem do array.'+numeros+"<br><br>")
+        document.write('ordem crescente com o metodo sort() '+numeros.sort());
+        */
+
+        /*var numeros = [66,77.99,0,1,2,3]; o método reverse() inverte os elementos do vetor.
+        document.write(numeros+"<br><br>")
+        document.write('Aqui os números estão inversos: '+ numeros.reverse());
+        */
+        
+        /*var numeros = [3,5,7,9,10,1]; o método join() é rápido e não precisa de estrutura de rpetição.
+        var num;
+        num = numeros.join();
+        document.write('conteúdo da variável num, string: '+num)
+        */
+        
+        var mochila = new Array();
+        var mochila1 = [];
+        var mochilaconcat = []
+
+        mochila.push('faca');
+        mochila.push('espelho');
+        mochila.push('pedra');
+        mochila.push('fosforo');
+        mochila.push('bussula');
+
+        mochila1.push('tesoura');
+        mochila1.push('alcool');
+        mochila1.push('pederneira');
+        mochila1.push('martelo');
+        mochila1.push('pregos');
+
+        mochilaconcat = mochila.concat(mochila1);
+        document.write(mochilaconcat[0]+"<br>");
+        document.write(mochilaconcat[1]+"<br>");
+        document.write(mochilaconcat[2]+"<br>");
+        document.write(mochilaconcat[3]+"<br>");
+        document.write(mochilaconcat[4]+"<br>");
+        document.write(mochilaconcat[5]+"<br>");
+        document.write(mochilaconcat[6]+"<br>");
+        document.write(mochilaconcat[7]+"<br>");
+        document.write(mochilaconcat[8]+"<br>");
+        document.write(mochilaconcat[9]+"<br>");
+        document.write(mochilaconcat[10]+"<br>");
+        document.write('Tamanho do vetor: '+mochilaconcat.length+' posições.')
+
+        
+
+
+
+
+    </script>
+
+    
+</body>
+</html>

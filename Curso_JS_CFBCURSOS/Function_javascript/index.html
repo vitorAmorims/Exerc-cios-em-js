@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function javascript</title>
+</head>
+<body>  
+    <h1>Aula sobre fundamentos de function em javascript.</h1>
+    <p><strong>Utilizei html básico, e compilei o resultado em console.</strong></p>
+    <p>function: serve para reaproveitar código, com possibilidade de usar várias vezes está lógica. </p>
+    <p>Function: é um tipo de valor js. Assim como, string, number, array e object.</p>
+    <h2>Parte 1 de function até linha 130 do código.</h2>
+    <p><strong> aprender conceito de object para fazer Parte 2 de function.</strong></p>
+    <h2>Parte 2 de function da linha 130 até 259 do código js</h2>
+    <h1>Recomendo aula de escopos para abrir nossa mente sobre this.</h1>
+    <script>
+        //criando function 
+        function escreva () {
+            console.log('olá, programar a bordo');
+        }
+        escreva(); //chamando a function.
+
+        //criação de function com parâmetro.
+        function escrevaMensagem (mensagem){ //estou adicionando parâmetro.
+            console.log(mensagem);
+        }
+        escrevaMensagem('Sou feliz!') //estou passando string 
+        escrevaMensagem('Eu, acredito na minha felicidade!');
+
+        //function que retornam valores.
+        function somaDois (a,b) {
+            return a + b;
+        } 
+        somaDois(10,5); //aqui a função realizou a soma de dois numeros, mais não imprime na gela.
+        
+        //aqui estou atribuindo uma função para variavel total.
+        var total = somaDois(10,5);
+        console.log(total);
+        
+        /*
+        para função, podemos passar como parãmetros string, number, array e object.
+        */
+
+        var numeros = [2,3,5,8,10];
+        console.log(numeros);
+        console.log(numeros.length);
+        function somavetor (numeros){ //aqui estou passando parâmetro 
+            var total = 0; //inicializando a variável total com valor 0;
+            for (var i = 0; i < numeros.length; i++){ //loop de repetição.
+            total += numeros[i];
+        }
+        console.log(total);
+        }
+        somavetor(numeros); //chamando função com parãmetro.
+
+        //estou atribuindo função à variável resultado.
+        var resultado = somavetor(numeros);
+        console.log(resultado);
+
+        /*
+        criando função com parâmetro rest
+        */
+        
+        function escreverEndereco (rua, cidade, pais, ...complementos) //estes ... quando não sabe quantos parãmetros a função vai receber. obs: é uma variável!
+        {
+            console.log(rua);
+            console.log(cidade);
+            console.log(pais);
+            console.table(complementos); //complementos é um array
+        }
+        escreverEndereco('Rua Alencar Araripe', 'São Paulo', 'Brasil', 'SP','999999999');
+
+
+        /*
+        function auto invocável: precisa colocar (), no inicio e final da função. E colocar () antes do fechamento. 
+        */
+
+        /*function auto exec, funcionalidade: proteger variável, funções, fechar escopos de funções privadas. Seu código não misturar com código de biblioteca terceira. Ver aula de housting para compreender escopo, global, local e etc.....
+
+        (function autoexec(){ //necessário proteger a função com ( no inicio,
+            console.log('Eu, amo minha família.');
+        }()) //estou fechando ) no final da função.
+
+        (function autoexec2(nome){
+            console.log('Eu, amo minha familia.', nome);
+        }('Amorim')); //passando String para parâmetro nome.
+
+        */
+
+        /*
+        function anonima
+
+        normalmente, função anonima e atribuida a uma variável.
+        */
+
+        var somaDoisNumeros = function(a,b){
+            return a+b;
+        }
+        console.log(somaDoisNumeros(10,3))
+
+
+        /*
+        funções callback - são usadas para transformação.
+        são passadas como parãmetros para outras funções.
+        e executadas dentro dela.
+        */
+        
+        //aqui estou criando a função, mas sen usar o recurso de função callback.
+        function somaCallBack (a,b,functionCallBack){
+            return functionCallBack(a + b);
+        }
+        
+        //aqui estou criando variável e atribuindo function para dobrar os parâmetros a, b.
+        var multiplica = function(total){
+            return total * 2;
+        };
+
+        console.log(somaCallBack(10,20, multiplica)); //estou chamando a functon callback que com os valores de a + b.
+
+        //aqui estou chamando function, atribuindo valores aos parãmetros e criando function anonimous que somara 30 a variavel/parãmetro total.
+        console.log(somaCallBack(5,7, function(total){
+            return total + 30;
+        }))
+
+        /*
+        ECMA 6 podemos definir valores default para as funções.
+        */
+        //criei function sem valores default.
+        function escreverNomeIdade (nome = 'Vitor', idade = 38){ // após o sinal de igual, estou criando valores default para os parâmetros da função.
+            console.log(nome);
+            console.log(idade);
+        }
+        escreverNomeIdade(); //Caso, não tenha valores default,irá retornar undefinid para nome e idade.
+        //caso tenha valores default, ao rodar console.log, irá imprimmir os valores default.
+
+        /*
+        final da aula function parte 1, recomendo apreender introdução de objetos para fazer parte 2.
+        */
+
+        //palavra reservada this dentro do javascript
+
+        /*
+        this - possui escopo dinâmico, que dependendo da aonde você à usa ela tem valor diferente.
+
+        function - pode alterar valor this, e dependendo de como invocamos function this pode ter vários valores.
+
+        nesta aula, vamos apreender como alterar os valores this através do operador new, através dos métodos bind, apply, call.
+
+        Por fim, vamos apreender arrow functions. Que não tem this dentro dela.
+        */
+           
+    </script>
+    <script>
+        console.clear();
+        console.log(this); //que basicamente é o objeto principal dentro do browser, manipular eventos, dom e etc... aqui this vale window.
+
+        /*
+        Há partir de agora eu quero alterar o valor de this.
+        js, altera valor de this, quando cria evento, alguma llibrary, dentro da function, sendo que você não usa este valor de this em outro contexto.
+        no decorrer do desenvolvimento, tem que alterar valor de this.
+        alguns evitam alterar this ao máximo.
+        */
+
+        //começando com uma função comum
+        function Usuario () {
+            console.log(this); //aqui this está valendo window
+        }
+        Usuario(); //this com mesmo valor de window.
+
+        /*
+            new - operador, para alterar valor de this.
+        */
+        
+        new Usuario(); //agora this tem valor object da function Usuario.
+
+        function Usuario2 () {
+            this.nome = 'Vitor', //atribuindo valor ao object.
+            this.idade = 38,
+            this.soma = function(a,b){
+                return a + b
+            }
+        }
+        console.log(Usuario2); //retorna this como object
+        //assim posso alterar propriedade deste object.
+        var usuario4 = new Usuario2();
+        console.log(usuario4);
+        console.log(usuario4.nome);
+        console.log(usuario4.idade);
+        console.log(usuario4.soma(10,5));
+
+        
+        /*
+        método call - para alterar valor de this.
+        */
+        function Personagem (p1,p2,p3) {
+            console.log(p1,p2,p3)
+            console.log(this)
+        }
+        var personagemThis = {
+            nome: "Vitor"
+        }
+        Personagem.call(personagemThis, 'param1', 123, {}); //estou chando a função e atribuindo valor.
+        console.clear();
+        
+        /*
+        método apply - ṕassagem de parametro por array.
+        */
+        Personagem.apply(personagemThis, ['param1', 123, {}])//no apply tenho de passar o valor dentro de array.
+        console.clear();
+        
+                
+        /*
+        método bind -  retorna uma nova function para você.
+        estudar bastante, este método é muito utilizado com REACT.
+        */
+        var pers  = Personagem.bind(personagemThis, 'Olá', 'Mundo', '!!!');
+        pers(); //estou invocando a função.
+        console.clear();
+
+        
+        /*
+        arrow function - não tem this dentro dela
+        sintase um pouco diferente
+        */
+
+        var soma = (a, b) => { //sinttaxe arrow function omiti a palavra function.
+            return a + b;
+        } 
+        console.log('Minha primeira arrow function '+soma(10,5));
+
+        var divisao = (a,b) => a/b; //podemos reduzir a sintaxe, quando a seta está direto na expressão.
+        //não houve necessidade de escrever return.
+        console.log(divisao(10,5));
+
+        //Arrow function - quando retorna object é obrigatório colocar ().
+        var retornarUsuario = () => ({nome: "Vitor", idade: 38});
+        console.log(retornarUsuario());
+
+        var usuarioInfo = (cidade) => (
+            {
+                nome: "lucas",
+                idadde: 17,
+                cidade
+            }
+            );
+        console.log(usuarioInfo());
+        console.log(usuarioInfo('São Paulo'));
+        
+
+        /*
+        apenas lembrando, this em arrow function não pode ser alterado
+        */
+        var imprimiThis = () => {
+            console.log(this);
+        }
+        imprimiThis();
+        
+        //vamos tentar alterar valor de this para function arrow function... sem sucesso!!
+        //**********diiferente com function normal*******
+        imprimiThis.call({nome: "Vitor"}); 
+
+    </script>
+</body>
+</html>

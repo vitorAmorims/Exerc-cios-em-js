@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixas de mensagens</title>
+</head>
+<body>
+    <h1>Vamos apreender os comandos para criação de caixas de mensagens.</h1>
+    <h2>Utilize \n para quebrar linhas dentros dos métodos: alert, prompt e confirm.</h2>
+    <p>document.alert() este comando serve para enviar mensagens de alerta ao usuário.</p>
+    <p>document.prompt() este comando serve para colher dados e reutilizar o contéudo dentro de uma variável.</p>
+    <script>
+        /*alert(`Olá mundo!`) // aqui estou usando o método alert para enviar mensagem na tela.
+        prompt(`Qual é o seu \n nome?`) //aqui estou usando o método prompt para aguardar o resultado do usuário e atribuir a uma variável.*/
+        //window.prompt("teste","valor default");//aqui estou usando o valor default para o método prompt.
+        var resposta = confirm(`Vitor, é o seu nome?`) // este método mostra uma janela com mensagem opcional de ok ou cancelar.
+        if (resposta == true){
+            document.write(`usuário clicou no botão ok!`)
+        }else{
+            document.write(`usuário clicou no botão cancelar.`)
+        }
+        
+    </script>
+</body>
+</html>
