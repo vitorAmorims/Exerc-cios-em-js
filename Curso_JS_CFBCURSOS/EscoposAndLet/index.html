@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escopos e let</title>
+</head>
+<body>
+    <h1>Nesta aula vamos ver conceito de escopos e let para declaração de variáveis.</h1>
+    <h1>Escopo:  o contexto atual de execução, em que valores e expressões são "visíveis" ou podem ser referenciadas. </h1>
+    <script>
+        var nome;
+        nome = "Vitor";
+        console.log(nome);
+        // neste momento a variável nome está com escopo global.
+        /*
+        para confirmar, a variavel nome está no escopo global = window
+        */
+        console.log(window.nome);
+
+        function imprimeNome () {
+            console.log(nome); //estou chamando a variável com escopo global.
+        }
+        window.imprimeNome();
+        console.clear();
+
+        /*
+        aqui a variável idade, terá escopo apenas na função imprimeIdade.
+        */
+
+        function imprimeIdade () {
+            var idade = 38; //com uso da variável var dentro da function, a variável idade terá apenas escopo dentro da function.
+            console.log(idade)
+        }
+        imprimeIdade(); //aqui o console imprime o valor da variável idade ok.
+
+        console.log(window.idade)//aparece erro, porque a variavel idade não possui escopo global.
+        console.clear();
+        /*
+        aqui a variavel terá escopo global, mesmo sendo declarado dentro da function.
+        */
+        function país () {
+            país = 'brasil';
+            console.log(país);
+        }
+        país(); //imprimi o valor da variável país.
+        console.log(window.país)//note que a variável está no escopo global.
+        console.clear();
+        
+        
+        /*
+        observação: sempre opite por criar variáveis com var, let ou const na construção de function para evitar aumentar o escopo das variaveis da function.
+        */
+
+        /*
+        https://pt.stackoverflow.com/questions/13034/o-que-s%C3%A3o-escopo-l%C3%A9xico-e-escopo-din%C3%A2mico-e-quais-s%C3%A3o-suas-principais-diferen%C3%A7as
+
+        ***muito importante****
+        1 - escopo léxico: O que conta é a estrutura gramatical, os aninhamentos. 
+        Nota: a estrutura de dentro pode acessar variáveis na estrutura de fora.
+
+        2 - escopo dinâmico: As funções podem acessar qualquer variável presente na pilha de execução. 
+        Nota: este tipo de escopo, está em desuso já que é dificil acompanhar quais variáveis estão visiveis em cada momento.
+        
+        normalmente é melhor evitar, mas devido sua flexibilidade pode ser usada.
+        */
+
+        //ex escopo léxico.
+        function usuario (){
+            var nome = "Vitor";
+            
+            return function (){
+                var sobrenome = "Amorim";
+                console.log(nome,sobrenome) //consigo enxergar a variável nome dentro de outra function.
+            }
+        }
+        usuario(); //aqui a função vai imprimir o valor da variável nome.
+        var nomeCompleto = usuario(); //estou atribuindo função a váriavel. Assim, podemos impirmir o retorno das variáveis em aninhamento.
+        nomeCompleto();
+        console.clear();
+
+        /*
+        let - escopo de variáveis dentro de blocos{}
+            - não permite redeclaracao de variável.
+            - PERMITE reatribuir valor á variável. 
+        */
+        if (true) {
+            var nome = "Escopo"
+            let idade = 38; //let somente dentro do {}
+            console.log(nome, idade)
+        }
+         
+        console.log(window.nome);//neste caso o escopo da variável nome está global.
+        console.log(window.idade);// neste caso variável undefined, porque o escopo de let é somente dentro do bloco.
+        console.clear();
+
+        //let - não permite redeclaracao de variável.
+        let sobrenome = "Amorim";
+        console.log(sobrenome);
+
+        /*
+        let sobrenome = "Félix"; //não é possivel redeclarar let.
+        console.log(sobrenome); //aqui o console retorna erro este identificador já está declarado.
+        */
+        sobrenome = "Félix"; //Permite reatrubuir.
+        console.log(sobrenome);
+
+        //obs: neste caso estou dentro de outro bloco, então podemos usar o mesmo identificador.
+        {
+        let sobrenome = "Amorim";
+        console.log(sobrenome);      
+        }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
