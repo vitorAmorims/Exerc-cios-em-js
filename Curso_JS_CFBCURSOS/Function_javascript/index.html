@@ -76,8 +76,14 @@
         function auto invocável: precisa colocar (), no inicio e final da função. E colocar () antes do fechamento. 
         */
 
-        /*function auto exec, funcionalidade: proteger variável, funções, fechar escopos de funções privadas. Seu código não misturar com código de biblioteca terceira. Ver aula de housting para compreender escopo, global, local e etc.....
+        /*function auto exec, funcionalidade: proteger variável e funções, fechar escopos de funções privadas. 
+        Seu código não misturar com código de biblioteca terceira. 
+        Ver aula de housting para compreender escopo, global, local e etc.....
 
+        /*
+        Note: que a function autoexec e autoexec2 abaixo, não estão disponiveis no escopo window.
+        */
+        
         (function autoexec(){ //necessário proteger a função com ( no inicio,
             console.log('Eu, amo minha família.');
         }()) //estou fechando ) no final da função.
@@ -106,7 +112,7 @@
         e executadas dentro dela.
         */
         
-        //aqui estou criando a função, mas sen usar o recurso de função callback.
+        //aqui estou criando a função, mas sem usar o recurso de função callback.
         function somaCallBack (a,b,functionCallBack){
             return functionCallBack(a + b);
         }

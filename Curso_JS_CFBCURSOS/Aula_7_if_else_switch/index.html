@@ -36,12 +36,12 @@
         var numero = Number(window.prompt(`Digite um número?`, `Digite um numero aqui.`))
             if (numero % 2 == 0){
                 if (numero >= 10){
-                    numero = numero * 2;
+                    numero = numero * 2; //se o número for par, e número for maior que 10, este número será multiplicado por 2.
                 } else {
-                    numero = numero + 1;
+                    numero = numero + 1; //número par, porém menor que 10 somará 1 unidade.
                 }
             } else {
-                numero = numero + numero
+                numero = numero + numero //se número for impar somar numero + numero.
             } 
         window.alert(numero);
         */
