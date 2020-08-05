@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1> Estarei descrevendo o aprendizado de matrizes em bidimensionais em javascript.</h1>
-    
+    <p>Todo conteúdo em script para javascript.</p>
     <script>
         var mochila = []; //criei o array
         /*
@@ -31,11 +31,10 @@
         recomendo usar o console.table para visualizar os indices do vetor multidimensional.
         */
         //neste caso, estou imprimindo o item do indice 1 faca e quantidade 1.
-        document.write(mochila[1][0]+ "-"+mochila[1][1]);
         console.clear();
 
         /*
-        aqui vamos criar uma matri, e fazer loops para percorrer os valores e soma a variável total.
+        aqui vamos criar uma matriz, e fazer loops para percorrer os valores e somar a variável total.
         */
         var total = 0;
         const matriz = [
@@ -168,8 +167,137 @@
             }
         }
         console.log(`A soma da triangular superior da matriz é ${total}.`)
+        console.clear();
         
-    </script>
+        //objetivo: somar o valor das duas matrizes matriz e matriz2.
+        
+        
+        const matriz2 = [
+            [10,20,30],
+            [5,4,3],
+            [7,8,9]
+        ] 
+        console.table(matriz2);
+        console.table(matriz);
+        //aqui estou iterando sobre as duas matrizes e somando na variável total.
+        total = 0
+        for (var l = 0; l < 3; l++){
+            for (var c = 0; c < 3; c++){
+                total += matriz[l][c];
+                total += matriz2[l][c];
+            }
+        }
+        console.log(`A soma das matrizes, matriz e matriz2 é ${total}`);
+        console.clear();
+
+        //aqui estou somando os numeros pares entre as matrizes matriz e matriz2.
+        console.table(matriz);
+        console.table(matriz2);
+        total = 0;
+        for (var l = 0; l < 3; l++){
+            for (var c = 0; c < 3; c++){
+                if (matriz[l][c] % 2 == 0){
+                    total +=matriz[l][c];
+                    if (matriz2[l][c] % 2 == 0){
+                       total += matriz2[l][c]
+                    }
+                } 
+            }
+        }
+        console.log(`A soma de números pares das matrizes, matriz e matriz2 é ${total}`);
+        console.clear();
+        
+        /*
+        aqui estou criando array com 3 objetos.
+        */
+        const myArray = [{x:100}, {x:200}, {x:300}];
+        console.table(myArray);
+        
+        /*
+        iterando o array com 3 objetos com uso do método forEach.
+        */        
+        myArray.forEach(function(element, index, array){
+            console.table(element, index, array);
+        });
+
+        const people = [
+            {name: 'John', age: 23}, 
+            {name: 'Andrew', age: 3}, 
+            {name: 'Peter', age: 8}, 
+            {name: 'Hanna', age: 14}, 
+            {name: 'Adam', age: 37}
+        ];
+
+        people.forEach(function(element, index, array){
+            console.table(element,index,array);
+        });
+        
+        const people2 = [
+            {name: 'Vitor', age: 23, group: 'A'}, 
+            {name: 'Lucas', age: 3, group: 'A'}, 
+            {name: 'Silvia', age: 8, group:'B'}, 
+            {name: 'Higor', age: 14, group:'C'}, 
+            {name: 'David', age: 37, group:'C'}
+        ];
+        
+        people2.forEach(function(element,index,array){
+            console.table(element, index, array);
+        });
+        console.clear();
+
+        //Percorrer as propriedades de um objeto com javascript.
+        var medidas = {
+            metros: 1,
+            polegadas:  39.37007874,
+            pes: 3.280839895,
+            jardas: 1.093613298,
+            milhas: 0.00062137119,
+            milhas_nauticas: 0.0005399
+        }
+        
+        /*
+        A melhor forma de fazer um loop pelo conteúdo do objeto "medidas" é converter ele para array. Vamos utiizar para isso a API "Object" do JavaScript. Ela possui 3 métodos que podem nos ajudar com isso, que são os seguintes:
+
+        Object.keys: cria um array contendo apenas as propriedades do objeto.
+
+        Object.values: cria um array apenas com os valores.
+
+        Object.entries: cria um array com dois items, o primeiro é a propriedade, e o segundo é o valor.
+
+        */
+
+        console.log(Object.keys(medidas));
+        console.log(Object.values(medidas));
+        console.log(Object.entries(medidas));
+
+        var valor_informado = 1;
+        for (let [key,value] of Object.entries(medidas)) {
+            var conversao = valor_informado * value;
+            console.log(`valor em ${key}:${conversao.toFixed(3)}`);
+        }
+
+        console.clear();
+
+        function simpleArraySum(ar) {
+            var elements = []
+            while (elements.length < 3){
+                elements.push(parseInt(prompt())
+            );
+            }
+            elements = elements.map(Number);
+            //console.log(elements);
+
+            var sum_of_array = 0;
+            for(var i = 0 ; i < elements.length; i++){
+                sum_of_array += elements[i];
+            console.log(sum_of_array);
+            }
+            }
+            
+        simpleArraySum();
+
+
+</script>
     
 
 </body>
