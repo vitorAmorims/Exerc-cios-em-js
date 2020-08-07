@@ -157,28 +157,198 @@ var matriz06B = [];
 var matriz06C = [];
 function felementosA (){
     for (var i = 0; i < 6; i++){
-        matriz06A.push(fpares(Math.floor(Math.random() * 25 +1)))
-        matriz06A = matriz06A.filter(function(item){
-            return item != null
-        })
+        var elemento = 0
+        while (matriz06A.length < 6){
+            elemento = (fpares(Math.floor(Math.random() * 25 +1)))
+            if (elemento > 0){
+                matriz06A.push(elemento);
+            }
+        }
     }
 return matriz06A;        
 }
 
 function felementosB (){
     for (var i = 0; i < 6; i++){
-        matriz06B.push(fimpares(Math.floor(Math.random() * 25 +1)));
-        matriz06B = matriz06B.filter(function(item){
-            return item != null
-        })
+        var elemento = 0
+        while (matriz06B.length < 6){
+            elemento = (fimpares(Math.floor(Math.random() * 25 +1)))
+            if (elemento > 0){
+                matriz06B.push(elemento);
+            }
+        }
     }
-return matriz06B;        
+return matriz06B;
 }
 
 felementosA();
 felementosB();
+
 matriz06C = matriz06A.concat(matriz06B);
+
 console.log('Matriz A: '+matriz06A);
 console.log('Matriz B: '+matriz06B);
 console.log('Matriz C: '+matriz06C);
 console.log(`A matriz C possui ${matriz06C.length} elementos.`)
+
+/*
+Escrever um programa que leia duas matrizes A e B de uma dimensão com dez elementos. A matriz A deve aceitar apenas a entrada de valores divisiveis por 2 e 3, enquanto a matriz B deve aceitar apenas a entrada  de valores múltiplos de 5. A entrada das matrizes deve ser validada pelo programa, e não pelo usuário. Construir uma matriz C que seja o resutado da junção das matrizes A e B, de modo que contenha 20 elementos. Apresentar a matriz C.
+*/
+console.log('Exercício 07');
+var matriz07A = [];
+var matriz07B = [];
+var matriz07C = [];
+function felementos7A (){
+    for (var i = 0; i < 10; i++){
+        var elemento = 0
+        while (matriz07A.length < 10){
+            elemento = (Math.floor(Math.random() * 25 +1))
+            if (elemento % 2 == 0 && elemento % 3 == 0){
+                matriz07A.push(elemento);
+            }
+        }
+    }
+return matriz07A;        
+}
+felementos7A();
+function felementos7B (){
+    for (var i = 0; i < 10; i++){
+        var elemento = 0
+        while (matriz07B.length < 10){
+            elemento = (Math.floor(Math.random() * 50 +1))
+            if (elemento % 5 == 0){
+                matriz07B.push(elemento);
+            }
+        }
+    }
+return matriz07B;        
+}
+felementos7B();
+matriz07C = matriz07A.concat(matriz07B);
+console.log('Diviseis por 2 e 3: '+matriz07A);
+console.log('Múltiplos de 5: '+ matriz07B);
+console.log('concatenação de A e B: '+matriz07C);
+/*
+Construir um programa que leia uma matriz A de uma dimensão do tipo vetor com 30 elementos do tipo inteiro. Ao final do programa, apresentar a quantidade de valores pares e impares existentes na referida matriz.
+*/
+console.log('Exercício 08');
+var matriz08A = [];
+var pares;
+var impares;
+var contPar = 0;
+var contImpar = 0;
+for (var i = 0; i < 30; i++){
+    matriz08A.push(Math.floor(Math.random () * 25 + 1))
+}
+pares = matriz08A.filter(function(item){
+    if (item % 2 == 0){
+      return contPar += 1;
+    }
+});
+impares = matriz08A.filter(function(item){
+    if (item % 2 != 0){
+        return contImpar += 1;
+    }
+})
+console.log('Matriz 08: '+matriz08A);
+console.log(pares)
+console.log(`São ${contPar} números pares!`)
+console.log(impares);
+console.log(`São ${contImpar} números impares!`)
+/*
+elaborar um programa que leia duas matrizes A e B de uma dimensão do tipo vetor com dez elementos inteiras cada. Construir uma matriz C de mesmo tipo e dimensão que seja formada pelo quadrado da soma dos elementos correspondentes nas matrizes A e B. Apresentar os elementos da matriz C.
+*/
+console.log('Exercício 09');
+var matriz09A = [];
+var matriz09B = [];
+var matriz09C = [];
+for (var i = 0; i < 10; i++){
+    matriz09A.push(Math.floor(Math.random () * 25 +1))
+    matriz09B.push(Math.floor(Math.random () * 25 + 1))
+}
+for (var i = 0; i < 10; i++){
+    matriz09C.push((matriz09A[i]+matriz09B[i]));
+}
+matriz09C = matriz09C.map(function(item){
+    return item *2;
+})
+console.log(matriz09A);
+console.log(matriz09B);
+console.log('Soma de (A e B) * 2: '+matriz09C);
+
+/*
+Elaborar um programa que leia uma matriz A de uma dimensão do tipo vetor do tipo real. Construir uma matriz B, em que cada posição de indice impar da matriz B deve ser atribuida com um elemento de indice par existente na matriz A 
+e cada posição de indice par na matriz B deve ser atribuida com um elemento de indice impar exstente na matriz A. Apresentar os elementos das duas matrizes.
+*/
+console.log('Exercício 10');
+var matriz10A = []
+var matriz10B = []
+var matriz10C = []
+for (var i = 0; i < 5; i++){
+    matriz10A.push(Math.floor(Math.random () * 25 + 1));
+    matriz10B.push(Math.floor(Math.random () * 25 + 1));
+}
+for (var i = 0; i < matriz10A.length; i++){
+    if (matriz10B[i] % 2 == 1){
+        matriz10C.push(matriz10B[i])
+    }
+    if (matriz10A[i] % 2 == 0){
+        matriz10C.push(matriz10A[i])
+    }
+}
+console.log('Matriz A: '+matriz10A);
+console.log('Matriz B: '+matriz10B);
+console.log('Impares de B + Pares de A: '+matriz10C);
+/*
+escrever um programa que leia uma matriz A de uma dimensão com 15 elementos inteiros. Apresentar o total de elementos pares existentes na matriz e o total de elementos impares na matriz.
+*/
+console.log('Exercício 11');
+var matriz11A = [];
+var somarPares = 0;
+var somarImpares = 0;
+var totalGeral = 0
+for (var i = 0; i < 15; i++){
+    matriz11A.push(Math.floor(Math.random() * 25 +1));
+}
+
+for (var i = 0; i < matriz11A.length; i++){
+    if (matriz11A[i] % 2 == 0){
+        somarPares += matriz11A[i]
+    }else{
+        somarImpares += matriz11A[i]
+    }
+}
+totalGeral = matriz11A.reduce(function(total,item){
+    total += item;
+    return total;
+})
+console.log(matriz11A);
+console.log('A soma geral é: '+totalGeral)
+console.log('A soma dos números pares do vetor é: '+somarPares)
+console.log('A soma dos números impares do vetor é: '+somarImpares)
+
+/*
+Elaborar um programa que leia uma matriz A de uma dimensão com 10 elementos númericos inteiros. Apresentar o total de elementos impares existentes na matriz e também o percentual do valor total de números impares em relação a quantidade total de elementos armazenados na matriz.
+*/
+console.log('Exercício 12')
+var matriz12A = []
+var countImpares = 0
+var countPares = 0
+var total = 10
+var perc;
+for (var i = 0; i < 10; i++){
+    matriz12A.push(Math.floor(Math.random () * 25 + 1))
+}
+
+for (var i = 0; i < matriz12A.length; i++){
+    if( matriz12A[i] % 2 == 1){
+        countImpares += 1   
+    } else{
+        countPares += 1
+    }
+}
+perc = (countImpares/total)*100 
+console.log(matriz12A);
+console.log('Números ímpares: '+countImpares);
+console.log('Números pares: '+countPares);
+console.log(`O percentual de números impares no vetor é ${perc}%`)
