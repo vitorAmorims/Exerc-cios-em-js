@@ -352,3 +352,4 @@ console.log(matriz12A);
 console.log('Números ímpares: '+countImpares);
 console.log('Números pares: '+countPares);
 console.log(`O percentual de números impares no vetor é ${perc}%`)
+//eu amo minha família
