@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ler dois números</title>
+</head>
+<body>
+    <h1>ler dois números, e apresentar o resultado da diferença do maior para menor valor.</h1>
+    <script>
+        var a = parseInt(window.prompt('Digite o valor de a?'));
+        var b = parseInt(window.prompt('Digite o valor de b?'));
+        var x;
+        if (a > b){
+            x = a - b
+            window.alert(`Variável a=${a}, variável b=${b}, resultado de a-b=${x}`)
+        } else {
+            x = b - a
+            window.alert(`Variável a=${a}, variável b=${b}, resultado de b-a=${x}`)
+        }
+    </script>
+    
+</body>
+</html>
