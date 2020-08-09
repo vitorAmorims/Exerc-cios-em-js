@@ -353,3 +353,184 @@ console.log('Números ímpares: '+countImpares);
 console.log('Números pares: '+countPares);
 console.log(`O percentual de números impares no vetor é ${perc}%`)
 //eu amo minha família
+
+/*
+elaborar programa que leia uma matriz  unidimensional de 10 números inteiros aleatórios. Apresente em ordem crescente e decrescente.
+*/
+console.log('Exercício 13');
+var matriz13 = [];
+for (var i = 0; i < 10; i++){
+    matriz13.push(Math.floor(Math.random () * 25 + 1))
+}
+// função para ordem crescente.
+function fcrescente (num){
+    for (var i = 0; i < matriz13.length; i++){
+        for (var j = 0; j < matriz13.length; j++){
+            var x;
+            if (matriz13[i] < matriz13[j]){
+                x = matriz13[i];
+                matriz13[i] = matriz13[j];
+                matriz13[j] = x;
+            }
+        }
+    }
+    return num;
+}
+//função para decrescente
+
+function fdecrescente (num){
+    for (var i = 0; i < matriz13.length; i++){
+        for (var j = 0; j < matriz13.length; j++){
+            var x;
+            if (matriz13[i] > matriz13[j]){
+                x = matriz13[i];
+                matriz13[i] = matriz13[j];
+                matriz13[j] = x;
+            }
+        }
+    }
+    return num
+}
+console.log(matriz13);
+console.log('Ordem crescente: '+fcrescente(matriz13));
+console.log('Ordem decrescente: '+fdecrescente(matriz13));
+
+/*
+Elaborar programa que leia uma matriz unidimensional de 10 nomes, a ordene em ordem cresente e decrescente. Elaborar função sequencial que procure um nome na matriz, se encontrar indique qual posição no vetor. Elabore uma função binária para procurar o nome no vetor, se encontrar indique qual posição no vetor.
+*/
+console.log('Exercício 14');
+var nomes = ['Vitor', 'Lucas', 'Silvia', 'Higor', 'Davi', 'Sandra','Neusa', 'Rubens','Marilia','Guilherme'];
+var nome = 'Neusa';
+function fnomesCrescente (nomes){
+    for (var i = 0; i < nomes.length; i++){
+        for (var j = 0; j < nomes.length; j++){
+            var x;
+            if (nomes[i] < nomes[j]){
+                x = nomes[i];
+                nomes[i] = nomes[j];
+                nomes[j] = x;
+            }
+        }
+    }
+    return nomes;
+}
+console.log('Normal: '+nomes);
+console.log('Crescente: '+fnomesCrescente(nomes));
+fnomes(nome);
+
+function fnomes (nome){ //aqui estou criando função sequencial 
+    for (var i = 0; i < nomes.length; i++){
+        if (nome == nomes[i]){
+            console.log(`O nome ${nome}, está localizado na posição ${i} do vetor.`)
+        } else {
+            console.log(`Não localizado na posição ${i} do vetor.`);
+        }
+    }
+    return nome;
+}
+
+nome = 'Guilherme';
+console.log('Nomes ordenados: '+nomes)
+
+function fnomesBinaria (param){ //aqui estou criando função binária
+    var final = 10;
+    var comeco = 1;
+    var achar = false;
+    var meio;
+    while (comeco <= final && achar == false){  
+        meio = parseInt((comeco + final) / 2);
+        if (param == nomes[meio]){
+            achar = true;
+        }else{
+            if (param < nomes[meio]){
+                final = meio - 1;
+            }else{
+                comeco = meio + 1;
+            }
+        }
+    }
+    if (achar == true){
+        console.log(`O nome ${param}, foi localizado na posição ${meio}.`);
+    }else{
+        console.log(`${param}, não foi localizado`);
+    }
+}
+fnomesBinaria(nome);
+
+/*
+Elaborar programa que leia uma matriz unidimensional de 10 números inteiros, a ordene em ordem cresente e decrescente. Elaborar função sequencial que procure um número na matriz, se encontrar indique qual posição no vetor. Elabore uma função binária para procurar umm número no vetor, se encontrar indique qual posição no vetor.
+*/
+console.log('Exercício 15');
+var matriz15 = []
+var numero;
+for (var i = 0; i < 15; i++){
+    matriz15.push(Math.floor(Math.random () * 25 + 1))
+}
+function f15crescente (num){
+    for (var i = 0; i < matriz15.length; i++){
+        for (var j = 0; j < matriz15.length; j++){
+            var x;
+            if (matriz15[i] < matriz15[j]){
+                x = matriz15[i];
+                matriz15[i] = matriz15[j];
+                matriz15[j] = x;
+            }
+        }
+    }
+    return matriz15;
+}
+function f15decrescente (num){
+    for (var i = 0; i < matriz15.length; i++){
+        for (var j = 0; j < matriz15.length; j++){
+            var x;
+            if (matriz15[i] > matriz15[j]){
+                x = matriz15[i];
+                matriz15[i] = matriz15[j];
+                matriz15[j] = x;
+            }
+        }
+    }
+    return matriz15;
+}
+console.log(matriz15);
+f15crescente(matriz15);
+console.log(matriz15);
+f15decrescente(matriz15);
+console.log(matriz15);
+function f15sequencial (num) {
+    for (var i = 0; i < matriz15.length; i++){
+        if (num == matriz15[i]){
+            console.log(`O número ${num}, está na poosição ${i} do vetor.`)
+        }else{
+            console.log(`Número não localizado na posição ${i}.`)
+        }
+    }
+    return num;
+}
+numero = 20;
+f15sequencial(numero);
+function f15binaria (param){
+    var final = matriz15.length;
+    var inicial = 1;
+    var meio;
+    var achar = false;
+    while (inicial <= final && achar == false){
+        meio = parseInt((inicial + final) / 2);
+        if (param == matriz15[meio]){
+            achar = true;
+        }else{
+            if (param < matriz15[meio]){
+                final = meio - 1;
+            }else{
+                comeco = meio + 1;
+            }           
+        }
+        
+    }
+    if (achar == true){
+        console.log(`FBinária: O número ${param}, foi localizado na posição ${meio}.`);
+    }else{
+        console.log(`FBinária: ${param}, não foi localizado.`);
+    }
+}
+f15binaria(numero)
