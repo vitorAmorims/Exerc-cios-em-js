@@ -317,3 +317,141 @@ function fCrescente08 (param){
     return matriz08B;
 }
 console.log('Matriz B crescente: '+fCrescente08(matriz08B));
+
+/*
+Elaborar um programa que leia duas matrizes A e B do tipo vetor com 15 elementos inteiros cada. Construir duas outtras matrizes C e D de mesmo tipo. Cada elemento da matriz C deve ser o somatório do elemento correspondente da matriz A, e cada elemento da matriz D deve ser 
+o fatorial do elemento da matriz B. Em seguida, construir uma matriz E, que deve conter a diferença dos elementos das matrizes C e D com a soma dos elementos das matrizes A e B. Apresentar os elementos da matriz E em ordem crescente.
+*/
+
+console.log('Exercício 09');
+var matriz08A = [];
+var matriz08B = [];
+var matriz08C = [];
+var matriz08D = [];
+var matriz08E = [];
+var subtracao = [];
+var adicao = [];
+for (var i = 0; i < 15; i++){ //criação das matrizes A e B ok
+    matriz08A.push(Math.floor(Math.random() * 25 + 1));
+    matriz08B.push(Math.floor(Math.random() * 25 + 1));
+}
+
+//cada elemento da matriz C deve ser o somatório correspondente da matriz A
+function fsomatorio08 (param){
+    n = param;
+    somatorio = 0;
+    while ( n > 0){
+        somatorio += n;
+        n -= 1;
+    }
+    return somatorio;
+}
+
+for (var i = 0; i < matriz08A.length; i++){
+    matriz08C.push(fsomatorio08(matriz08A[i]));
+}
+
+//matriz D deve ser fatorial de cada elemento da matriz B
+function ffatorial (param){
+    n = param;
+    fatorial = 1;
+    while (n > 0){
+        fatorial *= n;
+        n -= 1;
+    }
+    return fatorial;
+}
+for (var i = 0; i < matriz08B.length; i++){
+    matriz08D.push(ffatorial(matriz08B[i]));
+}
+
+// Matriz E, deve conter a diferença dos elementos das matrizes C e D com a soma dos elementos das matrizes A e B.
+
+for (var i = 0; i < matriz08C.length; i++){ //primeiro fiz subtração de C - D.
+    subtracao.push(matriz08C[i]-matriz08D[i])
+}
+
+for (var i = 0; i < matriz08A.length; i++){ //segundo realizei adição de A + B.
+    adicao.push(matriz08A[i]+matriz08B[i])
+}
+
+for (var i = 0; i < adicao.length; i++){
+    matriz08E.push(adicao[i]+subtracao[i]);
+}
+
+//Apresentar os elementos da matriz E em ordem crescente.
+
+function fcrescente08 (param){
+    for (var i = 0; i < matriz08E.length - 1; i++){
+        for (var j = i + 1; j < matriz08E.length; j++){
+            var x;
+            if (matriz08E[i] < matriz08E[j]){
+                x = matriz08E[i];
+                matriz08E[i] = matriz08E[j];
+                matriz08E[j] = x;
+            }
+        }
+    }
+    return matriz08E;
+}
+
+
+console.log('Matriz A: '+matriz08A);
+
+console.log('Matriz B: '+matriz08B);
+
+console.log('Matriz C = somatorio (matriz A(n)): '+matriz08C);
+
+console.log('matriz D = fatorial(B): '+matriz08D);
+
+console.log('matriz E = ((C-D) + (A+B))'+matriz08E);
+
+console.log('Matriz E ordem crescente: '+fcrescente08(matriz08E));
+
+/*
+Elaborar um programa que leia duas matrizes A e B de uma dimensão do tipo vetor com dez elementos inteiros cada. Construir uma matriz C de mesmos tipo e dimensão que seja formada pela soma dos quadrados de cada elemento corresponde das matrizes A e B. Apresentar a matriz C em ordem decrescente.
+*/
+
+console.log('Exercício 10');
+var matriz10A = [];
+var matriz10B = [];
+var matriz10C = [];
+var matriz10ADobr = []
+var matriz10BDobr = []
+for (var i = 0; i < 10; i++){ //matrizes A e B de uma dimensão do tipo vetor com dez elementos inteiros cada.
+    matriz10A.push(Math.floor(Math.random() * 25 + 1));
+    matriz10B.push(Math.floor(Math.random() * 25 + 1));
+}
+
+//Construir uma matriz C de mesmos tipo e dimensão que seja formada pela soma dos quadrados de cada elemento corresponde das matrizes A e B.
+function dobrar (param) { //poderia ter feito função anonima.
+    return param * 2;
+}
+for (var i = 0; i < matriz10A.length; i++){ //poderia ter usado método MAP, porém estou evitando métodos internos ok.
+    matriz10ADobr.push(dobrar(matriz10A[i]));
+    matriz10BDobr.push(dobrar(matriz10B[i]));
+}
+for (var i = 0; i < matriz10ADobr.length; i++){
+    matriz10C.push(matriz10ADobr[i]+matriz10BDobr[i]);
+}
+
+//Apresentar a matriz C em ordem decrescente.
+function fdescrescente10 (param){
+    for(var i = 0; i < matriz10C.length -1; i++){
+        for (var j = i +1 ;j < matriz10C.length; j++){
+            var x;
+            if (matriz10C[i] < matriz10C[j]){
+                x = matriz10C[i];
+                matriz10C[i] = matriz10C[j];
+                matriz10C[j] =x;
+            }
+        }
+    }
+    return matriz10C;
+}
+console.log('matriz A: '+matriz10A);
+console.log('A * 2: '+matriz10ADobr);
+console.log('matriz B: '+matriz10B);
+console.log('B * 2: '+matriz10BDobr);
+console.log('Matriz C = (A *)+ (B*2): '+matriz10C);
+console.log('Matriz C decrescente: '+fdescrescente10(matriz10C));
