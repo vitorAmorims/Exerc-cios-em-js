@@ -184,3 +184,136 @@ function Fpesquisa06B (param){
     }
 }
 Fpesquisa06B(8);
+/*
+elaborar um programa que leia 20 elementos numéricos inteiros em uma mariz A do tipo vetor. Construir uma matriz B de mesma dimensão com os elementos da matriz A + 2 elementos. Colocar os elementos da matriz B em ordem cresente. Montar um trecho de pesquisa binária para pesquisar os elementos armmazenados na matriz B.
+*/
+
+console.log('Exercício 06');
+var matriz06A = []
+var matriz06B = []
+for (var i = 0; i < 20; i++){
+    matriz06A.push(Math.floor(Math.random () * 25 + 1));
+}
+for (var i = 0; i < matriz06A.length; i++){
+    matriz06B.push(matriz06A[i]);
+}
+matriz06B.push(Math.floor(Math.random () * 25 + 1));
+matriz06B.push(Math.floor(Math.random () * 25 + 1));
+console.log(matriz06A);
+console.log(matriz06B);;
+
+for (var i = 0; i < matriz06B.length -1; i++){
+    for (var j = i + 1; j < matriz06B.length; j++){
+        var x;
+        if (matriz06B[i] > matriz06B[j]){
+            x = matriz06B[i];
+            matriz06B[i] = matriz06B[j];
+            matriz06B[j] = x;
+        }
+    }
+}
+console.log('Matriz B crescente: '+matriz06B);
+
+function fbinaria06 (param){
+        var comeco = 1;
+        var meio;
+        var final = matriz06B.length;
+        var achar = false;
+        while (comeco <= final && achar == false){
+            meio = parseInt((comeco + final) / 2);
+            if (param == matriz06B[meio]){
+                achar = true;
+            }else{
+                if (param < matriz06B[meio]){
+                    final = meio - 1;
+                }else{
+                    comeco = meio + 1;
+                }
+            }
+        }
+    if (achar == true){
+        console.log(`FBinária: O número ${param}, foi localizado na posição ${meio}.`);
+    }else{
+        console.log(`FBinária: ${param}, não foi localizado.`);
+    }
+}
+fbinaria06(20);
+
+/*
+Escrever um programa que leia 20 elementos númericos inteiros negativos em uma matriz A do tipo vetor. Construir uma matriz B de mesmo, tipo e dimensão, em que cada elemento deve ser o valor positivo do elemento correspondente da matriz A. Desta forma, se em A[1] estiver armazenado o elemento -3, deve estar em b[1] o valor 3, e assim por diante. Apresentar os elementos da matriz B em ordem decrescente.
+*/
+console.log('Exercício 07');
+var matriz07A = []
+var matriz07B = []
+for (var i = 0; i < 20; i++){
+    matriz07A.push(Math.floor(Math.random() * 25 +1))
+}
+console.log('Matriz A: '+matriz07A);
+function fnegativa07 (param){
+    param *= -1;
+    return param;
+}
+for (var i = 0; i < matriz07A.length; i++){
+    matriz07B.push(fnegativa07(matriz07A[i]));
+}
+console.log('matriz B: '+matriz07B);
+function fDecrescente07 (param){
+    for (var i = 0; i < matriz07B.length -1; i++){
+        for (var j = i + 1; j < matriz07B.length; j++){
+            var x;
+            if (matriz07B[i] > matriz07B[j]){
+                x = matriz07B[i];
+                matriz07B[i] = matriz07B[j];
+                matriz07B[j] = x;
+            }
+        }
+    }
+    return matriz07B;
+}
+console.log('Ordem decrescente: '+fDecrescente07(matriz07B));
+
+/*
+Elaborar programa que leia 15 elementos inteiros em uma matriz A. Construir uma matriz B de mesmo tipo e tamanho, em que cada elemento da matriz B seja a metade absoluta de cada elemento da matriz A. Apresentar os elementos na matriz A em ordem decrescente e os de B em ordem crescente.
+*/
+console.log('Exercício 08');
+var matriz08A = [];
+var matriz08B = [];
+for (var i = 0; i < 15; i++){
+    matriz08A.push(Math.floor(Math.random() * 25 + 1));
+}
+function fmetade08 (param){
+    return param /2;
+}
+for (var i = 0; i < matriz08A.length; i++){
+    matriz08B.push(fmetade08(matriz08A[i]));
+}
+console.log('Matriz A original: '+matriz08A);
+console.log('Matriz B = A/2: '+matriz08B);
+function fDecrescente08 (param){
+    for (var i = 0; i < matriz08A.length; i++){
+        for (var j = i +1; j < matriz08A.length; j++){
+            var x;
+            if (matriz08A[i] < matriz08A[j]){
+                x = matriz08A[i];
+                matriz08A[i] = matriz08A[j];
+                matriz08A[j] = x; 
+            }
+        }
+    }
+    return matriz08A;
+}
+console.log('Matriz A decrescente: '+fDecrescente08(matriz08A));
+function fCrescente08 (param){
+    for (var i = 0; i < matriz08B.length; i++){
+        for (var j = i + 1; j < matriz08B.length; j++){
+            var x;
+            if (matriz08B[i] > matriz08B[j]){
+                x = matriz08B[i];
+                matriz08B[i] = matriz08B[j];
+                matriz08B[j] = x;
+            }
+        }
+    }
+    return matriz08B;
+}
+console.log('Matriz B crescente: '+fCrescente08(matriz08B));
