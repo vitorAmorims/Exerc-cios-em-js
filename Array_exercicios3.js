@@ -455,3 +455,116 @@ console.log('matriz B: '+matriz10B);
 console.log('B * 2: '+matriz10BDobr);
 console.log('Matriz C = (A *)+ (B*2): '+matriz10C);
 console.log('Matriz C decrescente: '+fdescrescente10(matriz10C));
+
+/*
+Elaborar um programa que leia duas matrizes A e B de uma dimensão do tipo vetor com 12 elementos reais cada. Construir uma matriz C de mesmo tipo e dimensão que seja formada pelo
+produto de cada elemento correspondentes às matrizes A e B. Montar o trecho de pesquisa sequencial para pesquisar os elementos existentes na matriz C.
+*/
+console.log('Exercício 11');
+var matriz11A = [];
+var matriz11B = [];
+var matriz11C = [];
+for (var i = 0; i < 12; i++){
+    matriz11A.push(Math.floor(Math.random() * 25 + 1));
+    matriz11B.push(Math.floor(Math.random() * 25 + 1));
+}
+console.log('Matriz A: '+matriz11A);
+console.log('Matriz B: '+matriz11B);
+for (var i = 0; i < matriz11A.length; i++){
+    matriz11C.push(matriz11A[i]+matriz11B[i]);
+}
+console.log('Matriz C: '+matriz11C);
+function fsequencial11 (param){
+    for(var i = 0; i < matriz11A.length; i++){
+        if (param == matriz11C[i]){
+            console.log(`O número ${param}, está localizado na posição ${i}.`)
+        }else{
+            console.log(`Número não localizado na posição ${i}`);
+        }
+    }
+}
+fsequencial11(42);
+
+/*
+Elaborar um programa que eia três matrizes A, B e C de uma dimensão do tipo vetor com 15 elementos inteiros cada. Construir uma matriz D de mesmo tipo e dimens~ao que seja formada pela soma dos elementos corrrespondentes às matrizes A, B e C. Montar o trecho de pesquisa binária para pesquisar os elementos existentes na matriz D.
+*/
+console.log('Exercício 12');
+var matriz12A = [];
+var matriz12B = [];
+var matriz12C = [];
+var matriz12D = [];
+for (var i = 0; i < 15; i++){
+    matriz12A.push(Math.floor(Math.random() * 25 +1));
+    matriz12B.push(Math.floor(Math.random() * 25 +1));
+    matriz12C.push(Math.floor(Math.random() * 25 +1));
+}
+for (var i = 0; i < matriz12A.length; i++){
+    matriz12D.push(matriz12A[i]+matriz12B[i]+matriz12C[i]);
+}
+function FBinária12 (param) {
+    var comeco = 1;
+    var final = matriz12D.length;
+    var meio;
+    var achar = false;
+    while (comeco <= final && achar == false){
+        meio = parseInt((comeco + final) / 2);
+        if (param == matriz12D[meio]){
+            achar = true;
+        }else{
+            if (param < matriz12D[meio]){
+                final = meio - 1;
+            }else{
+                comeco = meio + 1;
+            }
+        }
+    }
+    if (achar == true){
+        console.log(`FBinária: O número ${param}, foi localizado na posição ${meio}.`);
+    }else{
+        console.log(`FBinária: ${param}, não foi localizado.`);
+    }
+}
+console.log('Matriz A: '+matriz12A);
+
+console.log('Matriz B: '+matriz12B);
+
+console.log('Matriz C: '+matriz12C);
+
+console.log('Matriz D = A+B+C: '+matriz12D);
+
+FBinária12(42);
+/*
+Escrever um programa que leia 15 elementos do tipo inteiro em uma matriz A e apresentar os elementos da matriz utilizando a pesquisa binária.
+*/
+console.log('Exercício 13');
+var matriz13 = []
+for (var i = 0; i < 13; i++){
+    matriz13.push(Math.floor(Math.random() * 25 + 1));
+}
+console.log(matriz13);
+
+function FBinaria13 (param) {
+    var comeco = 1;
+    var final = matriz13.length;
+    var meio;
+    var achar = false;
+    while (comeco <= final && achar == false){
+        meio = parseInt((comeco + final) / 2);
+        if (param == matriz13[meio]){
+            achar = true;
+        }else{
+            if (param < matriz13[meio]){
+                final = meio - 1;
+            }else{
+                comeco = meio + 1;
+            }
+        }
+    }
+    if (achar == true){
+        console.log(`FBinária: O número ${param}, foi localizado na posição ${meio}.`);
+    }else{
+        console.log(`FBinária: ${param}, não foi localizado.`);
+    }
+}
+
+FBinaria13(20);
