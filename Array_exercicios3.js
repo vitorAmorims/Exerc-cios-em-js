@@ -568,3 +568,130 @@ function FBinaria13 (param) {
 }
 
 FBinaria13(20);
+
+/*
+Elaborar um programa que leia uma matriz A com dez elementos do tipo cadeia. Construir uma matriz B de mesmo tipo e dimensão que a matriz A. O último elemento da matriz A deve ser o primeiro da matriz B, o penúltimo elemento da matriz A deve ser o segundo da matriz B até que o primeiro elemento da matriz A seja o último da matriz B. Apresentar os elementos da matriz B de forma ordenada ascendente.
+*/
+console.log('Exercício 14');
+var matriz14A = new Array;
+var matriz14B = new Array;
+for (var i = 0; i < 10; i++){
+    matriz14A.push(Math.floor(Math.random () * 25 +1));
+}
+console.log('Matriz A: '+matriz14A);
+function f14 (param){
+    for (var i = matriz14A.length -1; i >= 0; i--){
+        matriz14B.push(matriz14A[i]);
+    }
+    return matriz14B;
+}
+console.log('Matriz B = (A invertida): '+f14(matriz14B));
+for (var i = 0; i < matriz14B.length -1 ;i++){
+    for (var j = i + 1; j < matriz14B.length; j++){
+        var x;
+        if (matriz14B[i] > matriz14B[j]){
+            x = matriz14B[i];
+            matriz14B[i] = matriz14B[j];
+            matriz14B[j] = x;
+        }
+    }
+}
+console.log('Matriz B crescente: '+matriz14B);
+
+
+/*
+Elaborar um programa que leia dez elementos do tipo cadeia de uma matriz A e paresentá-los utilizando pesquisa binária.
+*/
+
+console.log('Exercício 15');
+var matriz15A = new Array;
+for (var i = 0; i < 10; i++){
+    matriz15A.push(Math.floor(Math.random() * 25 + 1));
+}
+console.log(matriz15A);
+
+function fbinaria15 (param){
+    var comeco = 1;
+    var final = matriz15A.length;
+    var meio;
+    var achar = false;
+    while (comeco <= final && achar == false){
+        meio = parseInt((comeco + final)/2);
+        if (param == matriz15A[meio]){
+            achar = true;
+        }else{
+            if (param < matriz15A[meio]){
+                final = meio - 1;
+            }else{
+                comeco = meio + 1;
+            }
+        }
+    }
+    if (achar == true){
+        console.log(`O número ${param}, está localizado na posição ${meio}`);
+    }else{
+        console.log(`Número ${param}, não localizado no vetor.`)
+    }
+}
+fbinaria15(10);
+
+/*
+Elaborar um programa que efetue a leitura de dados em duas matrizes (A e B) de uma dimensão do tipo vetor, sendo a matriz A com dez elementos e a matriz B com cinco elementos. Os elementos a serem armazenados nas matrizes devem ser do tipo cadeia. Construir uma matriz C com capacidade de armazenar um total de 15 elementose executar a junção das matrizes A e B na matriz C. Apresentar os dados da matriz C em ordem alfabética descendente.
+*/
+console.log('Exercício 16');
+var matriz15A = new Array;
+var matriz15B = new Array;
+var matriz15C = new Array;
+for (var i = 0; i < 10; i++){
+    matriz15A.push(Math.floor(Math.random() * 25 +1));
+}
+for (var i = 0; i < 5; i++){
+    matriz15B.push(Math.floor(Math.random() * 25 +1));
+}
+console.log('Matriz A: '+matriz15A);
+console.log('Matriz B: '+matriz15B);
+for (var i = 0; i < matriz15A.length; i++){
+    matriz15C.push(matriz15A[i]);
+}
+for (var i = 0; i < matriz15B.length; i++){
+    matriz15C.push(matriz15B[i])
+}    
+    
+console.log('Matriz C = (A junção B): '+matriz15C);
+
+function f15decrescente (param){
+    for (var i = 0; i < matriz15C.length -1; i++){
+        for (var j = i +1; j < matriz15C.length; j++){
+            var x;
+            if (matriz15C[i] < matriz15C[j]){
+                x = matriz15C[i];
+                matriz15C[i] = matriz15C[j];
+                matriz15C[j] = x;
+            }
+        }
+    }
+    return matriz15C;
+}
+console.log('Matriz C descrescente: '+f15decrescente(matriz15C));
+
+/*
+Elaborar um programa que leia dez elementos numéricos reais em uma matriz A do tipo  vetor e apresentar esses elementos por meio de pesquisa sequencial.
+*/
+
+console.log('Exercício 17');
+var matriz17 =  new Array;
+for (var i = 0; i < 10; i++){
+    matriz17.push(Math.floor(Math.random() * 25 + 1));
+}
+console.log(matriz17);
+function f17sequencial (param){
+    for (var i = 0; i < matriz17.length; i++){
+        if (param == matriz17[i]){
+            console.log(`O número ${param}, está localizado na posição ${i}`);
+        }else{
+            console.log(`Número ${param}, não localizado na posição ${i}`);
+        }
+    }
+}
+ 
+console.log(f17sequencial(10));
