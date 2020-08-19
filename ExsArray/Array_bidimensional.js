@@ -110,15 +110,31 @@ function MediaAluno (){
             total += nomes[i][j];
             media = total / 4;
         }
-        console.log(`A média do aluno ${nomes[i][0]} é ${media}.`)
+        console.log(`A média de ${nomes[i][0]} é ${media.toFixed(1)}.`)
     }
     
 }
 MediaAluno(nomes); // com está função, consegui o objetivo de retornar a média de cada aluno.
 
-//pendente media bimestral de cada prova bimestral
-
-
+//pendente media de cada prova bimestral
+function MediaBimestral () {
+    var total = 0;
+    var mediaBi1 = 0;
+    var mediaBi2 = 0;
+    var mediaBi3 = 0;
+    var mediaBi4 = 0;
+    
+    for (let i = 0; i < nomes.length; i++){
+        for (let j = 1; j < 5; j++){
+                total +=nomes[i][j];
+                mediaBi1 = total / 8;
+        }
+            
+        
+    }
+    console.log(`Media da prova Bimestral: ${mediaBi1.toFixed(1)}`);
+}
+MediaBimestral(nomes);
 //pendente media geral dos alunos
 
 
