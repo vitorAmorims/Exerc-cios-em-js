@@ -103,14 +103,16 @@ console.table(nomes); //aqui está ordenado ascendente pela coluna nome.
 console.log((nomes[0][1]+nomes[0][2]+nomes[0][3]+nomes[0][4])/4);//manual apenas para entendimento
 */
 function MediaCadaBimestral (){
-    var total = 0;
-    var total1 = 0;
-    var total2 = 0;
-    var total3 = 0;
+    let total = 0;
+    let total1 = 0;
+    let total2 = 0;
+    let total3 = 0;
     var media = 0;
     var media1 = 0;
     var media2 = 0;
     var media3 = 0;
+    var totalGeral = 0;
+    var mediaGeral = 0;
     for (var i = 0; i < nomes.length; i++){
         for (var j = 1; j < 2; j++){
             total += nomes[i][j];
@@ -129,7 +131,10 @@ function MediaCadaBimestral (){
             media3 = total3 / nomes.length;
         }
     }
-            
+    //pendente media geral dos alunos
+    totalGeral = media + media1 + media2 + media3
+    mediaGeral = totalGeral / 4;
+    console.log('Média Geral da TURMA: '+mediaGeral.toFixed(1))            
     console.log(`A média de primeira prova bimenstral é é ${media.toFixed(1)}.`);
     console.log(`A média de segunda prova bimenstral é é ${media1.toFixed(1)}.`);
     console.log(`A média de terceira prova bimenstral é é ${media2.toFixed(1)}.`);
@@ -138,6 +143,6 @@ function MediaCadaBimestral (){
 
 MediaCadaBimestral(nomes); 
 
-//pendente media geral dos alunos
+
 
 
