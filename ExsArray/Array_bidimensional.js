@@ -104,16 +104,25 @@ console.log((nomes[0][1]+nomes[0][2]+nomes[0][3]+nomes[0][4])/4);//manual apenas
 */
 function MediaCadaBimestral (){
     var total = 0;
+    var total1 = 0;
     var media = 0;
+    var media1 = 0;
     for (var i = 0; i < nomes.length; i++){
         for (var j = 1; j < 2; j++){
             total += nomes[i][j];
             media = total / nomes.length;
         }
+        for (var k = 2; k < 3; k++){
+            total1 += nomes[i][k];
+            media1 = total1 / nomes.length;
+        }
         
     }
-    console.log(`A média de primeira prova bimenstral é é ${media}.`);
+            
+    console.log(`A média de primeira prova bimenstral é é ${media.toFixed(1)}.`);
+    console.log(`A média de primeira prova bimenstral é é ${media1.toFixed(1)}.`);
 }
+
 MediaCadaBimestral(nomes); 
 
 //pendente media geral dos alunos
