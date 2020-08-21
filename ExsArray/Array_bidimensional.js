@@ -105,8 +105,12 @@ console.log((nomes[0][1]+nomes[0][2]+nomes[0][3]+nomes[0][4])/4);//manual apenas
 function MediaCadaBimestral (){
     var total = 0;
     var total1 = 0;
+    var total2 = 0;
+    var total3 = 0;
     var media = 0;
     var media1 = 0;
+    var media2 = 0;
+    var media3 = 0;
     for (var i = 0; i < nomes.length; i++){
         for (var j = 1; j < 2; j++){
             total += nomes[i][j];
@@ -116,11 +120,20 @@ function MediaCadaBimestral (){
             total1 += nomes[i][k];
             media1 = total1 / nomes.length;
         }
-        
+        for (var w = 3; w < 4; w++){
+            total2 += nomes[i][k];
+            media2 = total2 / nomes.length;
+        }
+        for (var q = 4; q < 5; q++){
+            total3 += nomes[i][q];
+            media3 = total3 / nomes.length;
+        }
     }
             
     console.log(`A média de primeira prova bimenstral é é ${media.toFixed(1)}.`);
-    console.log(`A média de primeira prova bimenstral é é ${media1.toFixed(1)}.`);
+    console.log(`A média de segunda prova bimenstral é é ${media1.toFixed(1)}.`);
+    console.log(`A média de terceira prova bimenstral é é ${media2.toFixed(1)}.`);
+    console.log(`A média de quarta prova bimenstral é é ${media3.toFixed(1)}.`);
 }
 
 MediaCadaBimestral(nomes); 
