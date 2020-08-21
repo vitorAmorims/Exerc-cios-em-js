@@ -102,25 +102,20 @@ console.table(nomes); //aqui está ordenado ascendente pela coluna nome.
 /*pendente media de cada aluno
 console.log((nomes[0][1]+nomes[0][2]+nomes[0][3]+nomes[0][4])/4);//manual apenas para entendimento
 */
-function MediaAluno (){
+function MediaCadaBimestral (){
+    var total = 0;
+    var media = 0;
     for (var i = 0; i < nomes.length; i++){
-        var total = 0;
-        var media = 0;
-        for (var j = 1; j < 5; j++){
+        for (var j = 1; j < 2; j++){
             total += nomes[i][j];
-            media = total / 4;
+            media = total / nomes.length;
         }
-<<<<<<< HEAD
-        console.log(`A média de ${nomes[i][0]} é ${media.toFixed(1)}.`)
-=======
-        console.log(`A média do aluno ${nomes[i][0]} é ${media.toFixed(1)}.`)
->>>>>>> 359e139841cf6194c2bd3fe25f8029bb6e4bb984
+        
     }
-    
+    console.log(`A média de primeira prova bimenstral é é ${media}.`);
 }
-MediaAluno(nomes); // com está função, consegui o objetivo de retornar a média de cada aluno.
+MediaCadaBimestral(nomes); 
 
-<<<<<<< HEAD
 //pendente media geral dos alunos
 
 
