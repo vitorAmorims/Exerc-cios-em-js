@@ -12,6 +12,10 @@ var matriz6 = new Array;
 var matriz7 = new Array;
 var matriz8 = new Array;
 var matriz9 = new Array;
+var matriz10 = new Array;
+var matriz11 = new Array;
+var matriz12 = new Array;
+
 
 
 var matriz1A = new Array;
@@ -44,5 +48,20 @@ matriz1B[2]=matriz7;
 matriz1B[3]=matriz8;
 matriz1B[4]=matriz9;
 
+//Construir uma matriz C de mesma dimensão, que seja formada pela soma dos elementos da Matriz A com elementos da matriz B.
+// exemplo (matriz1A[0][0]+matriz1B[0][0]);
+
+for (let i = 0; i < 1; i++){
+    for (let j = 0; j < 3; j++){
+        matriz10.push(matriz1A[i][j]+matriz1B[i][j]);
+        matriz11.push(matriz1A[i][j]+matriz1B[i][j]);
+        matriz12.push(matriz1A[i][j]+matriz1B[i][j]);
+    }
+}
+matriz1C.push(matriz10);
+matriz1C.push(matriz11);
+matriz1C.push(matriz12);
+
+console.log(matriz1C);
 console.table(matriz1A);
 console.table(matriz1B);
