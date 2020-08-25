@@ -1,0 +1,15 @@
+
+function createMat2D (linhas,colunas){
+    var x = new Array(colunas);
+    for (let i = 0; i < colunas; i++){
+        x[i] = new Array(colunas);
+    }
+    return x;
+}
+var MatrizA = createMat2D(3,3);
+for (let i = 0; i < MatrizA.length; i++){
+    for (let j = 0; j < MatrizA.length; j++){
+        MatrizA.push(Math.floor(Math.random() * 25 + 1))
+    }
+}
+console.table(MatrizA);
