@@ -14,18 +14,6 @@ function criarMatriz2D (linhas, colunas, randon){
 }
 console.table(criarMatriz2D(5,5));
 
-//console.log(matriz[0][0]+matriz[0][1]); lógica para somar as linhas, antes de calcular média por linha.
-//var soma = 0;
-//var media = 0
-/*for (let i = 0; i < 1; i++){
-    for (let j = 0; j < 5; j++){
-        soma += (matriz[i][j]);
-        media = soma / matriz.length;
-    }
-}
-*/
-//console.log(soma); //cosegui criar soma para os itens da primeira linha.
-//console.log(media); //consegui fazer a media para primeira linha.
 function MediaPorLinha(matriz){
     var soma = 0;
     var media = 0;
@@ -40,3 +28,12 @@ function MediaPorLinha(matriz){
 }
 console.log(MediaPorLinha(matriz));
 
+for (var i = 1; i < 2; i++){
+    var soma = 0;
+    var media = 0;
+    for (var j = 0; j < 5; j++){
+        soma += matriz[i][j];
+        media = soma / 5;
+    }
+console.log(media);
+}
