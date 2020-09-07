@@ -1,8 +1,8 @@
 // Desafio 11
-let numero = [9, 1, 3, 0, 5, 6, 8, 7, 0, 1, 1];
+let numero = [1, 2,3,4,5,3,7,8,9,0,3];
 function numeroTelefone (numero) {
     let retornarphone;
-    let cont = 1
+    let cont = 0
     if (numero.length !== 11) {
         retornarphone = 'Array com tamanho incorreto';
         console.log(retornarphone);
@@ -22,7 +22,8 @@ function numeroTelefone (numero) {
             retornarphone = 'não é possível gerar um número de telefone com esses valores';
             console.log(retornarphone);
         }
-
+        
+        //tratativa para o retorno da função        
     }
     return retornarphone;
 }
