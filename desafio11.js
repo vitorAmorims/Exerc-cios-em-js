@@ -1,5 +1,5 @@
 // Desafio 11
-let numero = [1, 2,3,4,5,6,7,8,9,0,3];
+let numero = [1,2,3,4,5,6,7,8,9,0,3];
 function numeroTelefone (phone) {
     let numero = phone;
     let retornarphone;
@@ -25,8 +25,8 @@ function numeroTelefone (phone) {
         }
         
         //tratativa para o retorno da função
-    retornarphone = numero.join('');
-    console.log(`${retornarphone}`);                
+    retornarphone = numero.join('').toString();
+    console.log(`(${retornarphone[0]}${retornarphone[1]}) ${retornarphone[2]}${retornarphone[3]}${retornarphone[4]}${retornarphone[5]}${retornarphone[6]}-${retornarphone[7]}${retornarphone[8]}${retornarphone[9]}${retornarphone[10]}`);                
     }
     return retornarphone;
 }
