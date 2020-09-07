@@ -1,6 +1,7 @@
 // Desafio 11
-let numero = [1, 2,3,4,5,3,7,8,9,0,3];
-function numeroTelefone (numero) {
+let numero = [1, 2,3,4,5,6,7,8,9,0,3];
+function numeroTelefone (phone) {
+    let numero = phone;
     let retornarphone;
     let cont = 0
     if (numero.length !== 11) {
@@ -23,7 +24,9 @@ function numeroTelefone (numero) {
             console.log(retornarphone);
         }
         
-        //tratativa para o retorno da função        
+        //tratativa para o retorno da função
+    retornarphone = numero.join('');
+    console.log(`${retornarphone}`);                
     }
     return retornarphone;
 }
